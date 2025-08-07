@@ -27,4 +27,5 @@ steps:
 images: ["us-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/hello-spring"]
 options:
   logging: CLOUD_LOGGING_ONLY
+  requestedVerifyOption: VERIFIED
 # [END cloudbuild_gradle]
