@@ -17,11 +17,13 @@ steps:
   - name: gradle:8-jdk17
     entrypoint: gradle
     args: ["test"]
+    dir: "gradle-example"
   - name: gradle:8-jdk17
     entrypoint: gradle
     args: ["assemble"]
+    dir: "gradle-example"
   - name: gcr.io/cloud-builders/docker
-    args: ["build", "-t", "us-central1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/hello-spring", "--build-arg=JAR_FILE=build/libs/hellospring-1.0.0.jar", "."]
+    args: ["build", "-t", "us-central1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/hello-spring", "--build-arg=JAR_FILE=build/libs/hellospring-1.0.0.jar", "./gradle-example"]
 images: ["us-central1-docker.pkg.dev/$PROJECT_ID/$_REPO_NAME/hello-spring"]
 options:
   logging: CLOUD_LOGGING_ONLY
